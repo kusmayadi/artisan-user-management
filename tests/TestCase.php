@@ -3,9 +3,12 @@
 namespace Kusmayadi\ArtisanUser\Tests;
 
 use Kusmayadi\ArtisanUser\ArtisanUserServiceProvider;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use RefreshDatabase;
+
     public function setUp(): void
     {
         parent::setUp();

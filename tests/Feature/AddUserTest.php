@@ -2,7 +2,6 @@
 
 namespace Kusmayadi\ArtisanUser;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Kusmayadi\ArtisanUser\Tests\TestCase;
 use Illuminate\Support\Facades\Artisan;
 use Kusmayadi\ArtisanUser\Models\User;
