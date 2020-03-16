@@ -1,0 +1,40 @@
+{
+    "name": "kusmayadi/artisan-user",
+    "description": "Laravel artisan command for managing users",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kusmayadi",
+            "email": "kusmayadi@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.1",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kusmayadi\\ArtisanUser\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kusmayadi\\ArtisanUser\\Tests\\": "tests",
+            "Kusmayadi\\ArtisanUser\\Database\\": "database"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kusmayadi\\ArtisanUser\\ArtisanUserServiceProvider"
+            ]
+        }
+    },
+
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test -f": "vendor/bin/phpunit --filter"
+    }
+}
