@@ -22,7 +22,8 @@ class ArtisanUserServiceProvider extends ServiceProvider
 
             $this->commands([
                 Console\Commands\UserAdd::class,
-                Console\Commands\UserList::class
+                Console\Commands\UserList::class,
+                Console\Commands\UserEdit::class,
             ]);
         }
     }

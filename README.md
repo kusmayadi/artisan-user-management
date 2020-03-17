@@ -15,9 +15,12 @@ Progress so far:
 
     Simple user's list. Displaying all users without pagination.
 
+*   **Edit User**
+
+    Edit user with parameter id/email, or edit user interactively
+
 Todo:
 
-* Edit User
 * Delete User
 * Pagination list
 * Edit via list
