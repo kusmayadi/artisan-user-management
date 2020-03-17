@@ -20,16 +20,16 @@ class UserList extends Command
         $users = User::all();
 
         $this->info('Users');
-        $this->info('========================================');
-        $this->info('|  id  |              Name              |');
-        $this->info('========================================');
+        $this->info('=====================================================================');
+        $this->info('|  id  |              Name              |           Email           |');
+        $this->info('=====================================================================');
 
         foreach ($users as $user)
         {
-            $this->info('|' . str_pad($user->id, 6, ' ', STR_PAD_BOTH) . '|' . str_pad($user->name, 32, ' ', STR_PAD_BOTH) . '|');
+            $this->info('|' . str_pad($user->id, 6, ' ', STR_PAD_BOTH) . '|' . str_pad($user->name, 32, ' ', STR_PAD_BOTH) . '|' . str_pad($user->email, 27, ' ', STR_PAD_BOTH) . '|');
         }
 
-        $this->info('========================================');
+        $this->info('=====================================================================');
 
     }
 }

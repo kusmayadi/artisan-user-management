@@ -18,16 +18,16 @@ class ListUserTest extends TestCase
 
         $artisan = $this->artisan('user:list');
         $artisan->expectsOutput('Users')
-                ->expectsOutput('========================================')
-                ->expectsOutput('|  id  |              Name              |')
-                ->expectsOutput('========================================');
+                ->expectsOutput('=====================================================================')
+                ->expectsOutput('|  id  |              Name              |           Email           |')
+                ->expectsOutput('=====================================================================');
 
         foreach ($users as $user)
         {
-            $artisan->expectsOutput('|' . str_pad($user->id, 6, ' ', STR_PAD_BOTH) . '|' . str_pad($user->name, 32, ' ', STR_PAD_BOTH) . '|');
+            $artisan->expectsOutput('|' . str_pad($user->id, 6, ' ', STR_PAD_BOTH) . '|' . str_pad($user->name, 32, ' ', STR_PAD_BOTH) . '|' . str_pad($user->email, 27, ' ', STR_PAD_BOTH) . '|');
         }
 
-        $artisan->expectsOutput('========================================')
+        $artisan->expectsOutput('=====================================================================')
                 ->assertExitCode(0);
     }
 }
