@@ -24,8 +24,7 @@ class EditUserTest extends TestCase
     function editUserWrongParameterId()
     {
         $this->artisan('user:edit ' . $this->inexistsUser->id)
-            ->expectsOutput('User with id ' . $this->inexistsUser->id . ' is not exists.')
-            ->expectsOutput('Run \'php artisan user:list\' to see list of users with their ids.')
+            ->expectsOutput('User with id ' . $this->inexistsUser->id . " is not exists.\nRun 'php artisan user:list' to see list of users with their ids.")
             ->assertExitCode(0);
     }
 
@@ -36,8 +35,7 @@ class EditUserTest extends TestCase
     function editUserWrongParameterEmail()
     {
         $this->artisan('user:edit ' . $this->inexistsUser->email)
-            ->expectsOutput('User with email ' . $this->inexistsUser->email . ' is not exists.')
-            ->expectsOutput('Run \'php artisan user:list\' to see list of users with their emails.')
+            ->expectsOutput('User with email ' . $this->inexistsUser->email . " is not exists.\nRun 'php artisan user:list' to see list of users with their emails.")
             ->assertExitCode(0);
     }
 
@@ -51,8 +49,7 @@ class EditUserTest extends TestCase
             ->expectsOutput('Edit User')
             ->expectsOutput('========================================')
             ->expectsQuestion('Enter user\'s id or email: ', $this->inexistsUser->id)
-            ->expectsOutput('User with id ' . $this->inexistsUser->id . ' is not exists.')
-            ->expectsOutput('Run \'php artisan user:list\' to see list of users with their ids.')
+            ->expectsOutput('User with id ' . $this->inexistsUser->id . " is not exists.\nRun 'php artisan user:list' to see list of users with their ids.")
             ->assertExitCode(0);
     }
 
@@ -66,8 +63,7 @@ class EditUserTest extends TestCase
             ->expectsOutput('Edit User')
             ->expectsOutput('========================================')
             ->expectsQuestion('Enter user\'s id or email: ', $this->inexistsUser->email)
-            ->expectsOutput('User with email ' . $this->inexistsUser->email . ' is not exists.')
-            ->expectsOutput('Run \'php artisan user:list\' to see list of users with their emails.')
+            ->expectsOutput('User with email ' . $this->inexistsUser->email . " is not exists.\nRun 'php artisan user:list' to see list of users with their emails.")
             ->assertExitCode(0);
     }
 

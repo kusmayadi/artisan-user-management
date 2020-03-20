@@ -6,10 +6,10 @@ use Illuminate\Console\Command;
 use Kusmayadi\ArtisanUser\Console\Helpers\UserHelper;
 use Kusmayadi\ArtisanUser\Models\User;
 
-class UserEdit extends Command
+class UserDelete extends Command
 {
-    protected $signature = "user:edit {idOrEmail?}";
-    protected $description = "Edit user";
+    protected $signature = "user:delete {idOrEmail?}";
+    protected $description = "Delete user";
 
     public function __construct()
     {
@@ -19,6 +19,9 @@ class UserEdit extends Command
     public function handle()
     {
         $idOrEmail = $this->argument('idOrEmail');
+
+        $this->info('Delete User');
+        $this->info('========================================');
 
         if ($idOrEmail)
         {
@@ -36,17 +39,14 @@ class UserEdit extends Command
         {
             $this->error(UserHelper::noUserMessage($idOrEmail));
         } else {
-            $this->info('Edit User');
-            $this->info('========================================');
-            $this->showEdit($user);
+            $this->delete($user);
         }
     }
 
     private function handleInput()
     {
-        $this->info('Edit User');
-        $this->info('========================================');
         $idOrEmail = $this->ask('Enter user\'s id or email: ');
+        $this->info('========================================');
 
         $user = UserHelper::getUser($idOrEmail);
 
@@ -54,48 +54,31 @@ class UserEdit extends Command
         {
             $this->error(UserHelper::noUserMessage($idOrEmail));
         } else {
-            $this->info('========================================');
-            $this->showEdit($user);
+            $this->delete($user);
         }
     }
 
-    private function showEdit($user)
+    private function delete($user)
     {
         $this->info('ID: ' . $user->id);
         $this->info('Name: ' . $user->name);
         $this->info('Email: ' . $user->email);
         $this->info('========================================');
-        $this->info('Leave it blank if you don\'t want to change it.');
 
-        $name = $this->ask('Name (' . $user->name  .'): ');
-        $email = $this->ask('Email (' . $user->email . '): ');
-
-        $this->info('========================================');
-        $this->info('This following user\'s data will be saved: ');
-        $this->info('Name: ' . ($name ? $name : $user->name));
-        $this->info('Email: ' . ($email ? $email : $user->email));
-        $this->info('========================================');
-
-        $confirmation = strtolower($this->confirm('Do you wish to continue? (Y/N)'));
+        $confirmation = strtolower($this->confirm('Are you sure you want to delete this user?'));
 
         if ($confirmation == 'y' OR $confirmation == 'yes' OR $confirmation == 1) {
             try {
-                if ($name)
-                    $user->name = $name;
+                $user->delete();
 
-                if ($email)
-                    $user->email = $email;
-
-                $user->save();
-
-                $this->info('Saved.');
+                $this->info('User has been remove from the system.');
             } catch (Illuminate\Database\QueryException $e) {
                 $this->error($e->getMessage());
             } catch (Exception $e) {
                 $this->error($e->getMessage());
             }
         } else {
-            $this->error('Aborting');
+            $this->error('Aborting.');
         }
     }
 }

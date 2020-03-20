@@ -24,6 +24,7 @@ class ArtisanUserServiceProvider extends ServiceProvider
                 Console\Commands\UserAdd::class,
                 Console\Commands\UserList::class,
                 Console\Commands\UserEdit::class,
+                Console\Commands\UserDelete::class,
             ]);
         }
     }

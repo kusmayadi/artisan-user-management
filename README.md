@@ -19,9 +19,12 @@ Progress so far:
 
     Edit user with parameter id/email, or edit user interactively
 
+*   **Delete User**
+
+    Delete user with parameter id/email, or delete it interactively
+
 Todo:
 
-* Delete User
 * Pagination list
 * Edit via list
 * Delete via list
