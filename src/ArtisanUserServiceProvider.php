@@ -25,6 +25,7 @@ class ArtisanUserServiceProvider extends ServiceProvider
                 Console\Commands\UserList::class,
                 Console\Commands\UserEdit::class,
                 Console\Commands\UserDelete::class,
+                Console\Commands\ResetPassword::class
             ]);
         }
     }
