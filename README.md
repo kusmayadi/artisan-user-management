@@ -23,9 +23,12 @@ Progress so far:
 
     Delete user with parameter id/email, or delete it interactively
 
+*   **Reset Password**
+
+    Reset user's password with parameter id/email or interactively. You can set your own password or randomly generated
+
 Todo:
 
 * Pagination list
 * Edit via list
 * Delete via list
-* Reset password
