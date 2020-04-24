@@ -72,8 +72,8 @@ class ResetPassword extends Command
 
         if ($confirmation == 'y' OR $confirmation == 'yes' OR $confirmation == 1) {
             try {
-                if ($newPassword === '') {
-                    $newPassword = Str::random(24);
+                if ($newPassword == '') {
+                    $newPassword = Str::random(13);
                     $this->info('New password: ' . $newPassword);
                 }
 
