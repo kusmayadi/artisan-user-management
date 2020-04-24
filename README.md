@@ -1,34 +1,53 @@
 # Artisan User Management
 
-## Laravel package for managing users via artisan
+## Laravel package for managing users via artisan console
 
-*Please note that this is still in heavy development.*
+### Installation 
 
-Progress so far:
+`composer require kusmayadi\artisan-user`
 
+### Usage
 
 *   **Add User**
 
-    Add user interactively.
+    `php artisan user:add` 
 
 *   **List User**
 
-    Simple user's list. Displaying all users without pagination.
+    `php artisan user:list`
 
 *   **Edit User**
 
-    Edit user with parameter id/email, or edit user interactively
+    `php artisan user:edit {userID}`
+
+    or 
+
+    `php artisan user:edit {userEmail}`
+
+    or 
+
+    `php artisan user:edit`
 
 *   **Delete User**
 
-    Delete user with parameter id/email, or delete it interactively
+    `php artisan user:delete {userID}`
+
+    or 
+
+    `php artisan user:delete {userEmail}`
+
+    or 
+
+    `php artisan user:delete`
 
 *   **Reset Password**
 
-    Reset user's password with parameter id/email or interactively. You can set your own password or randomly generated
+    `php artisan user:reset-password {userID}`
 
-Todo:
+    or 
 
-* Pagination list
-* Edit via list
-* Delete via list
+    `php artisan user:reset-password {userEmail}`
+
+    or 
+
+    `php artisan user:reset-password`
