@@ -1,12 +1,14 @@
 # Artisan User Management
 
-## Laravel package for managing users via artisan console
+Laravel package for managing users via artisan console.
 
-### Installation 
+## Installation 
+
+You can install the package via composer: 
 
 `composer require kusmayadi\artisan-user`
 
-### Usage
+## Usage
 
 *   **Add User**
 
@@ -51,3 +53,7 @@
     or 
 
     `php artisan user:reset-password`
+
+## License
+
+The MIT License (MIT). Please see [LICENSE file](LICENSE) for more information.
