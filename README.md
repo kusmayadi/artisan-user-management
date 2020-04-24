@@ -1,5 +1,7 @@
 # Artisan User Management
 
+![Travis (.org)](https://img.shields.io/travis/kusmayadi/artisan-user-management?style=flat-square)
+
 Laravel package for managing users via artisan console.
 
 ## Installation 
